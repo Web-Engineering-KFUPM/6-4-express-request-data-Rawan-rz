@@ -122,7 +122,7 @@ app.get("/echo", (req, res) => {
   if (!name || !age) {
     return res.status(400).json({
       ok: false,
-      error: "name and age required"
+      error: "name & age required"
     });
   }
 
@@ -155,7 +155,11 @@ app.param("userId", (req, res, next, userId) => {
 }); 
 // Route params: /users/:userId route
 
-
+app.get("/users/:userId", (req, res) => {
+  res.json({
+    ok: true, userId: req.userIdNum
+  });
+});
 // Start the server by listening
 
 
